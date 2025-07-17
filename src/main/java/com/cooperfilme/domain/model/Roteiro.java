@@ -3,6 +3,7 @@ package com.cooperfilme.domain.model;
 import com.cooperfilme.domain.enums.StatusRoteiro;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Roteiro {
     private UUID id;

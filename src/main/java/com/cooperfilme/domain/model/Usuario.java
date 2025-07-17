@@ -1,5 +1,6 @@
 package com.cooperfilme.domain.model;
 
+import com.cooperfilme.domain.enums.Cargo;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
