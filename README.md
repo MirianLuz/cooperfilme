@@ -143,6 +143,25 @@ Content-Type: application/json
 }
 ```
 
+Usuários para teste:
+``# Usuários de exemplo (para testes)
+
+- Analista
+  email: analista@cooperfilme.com
+  senha: 123456
+- Revisor
+  email: revisor@cooperfilme.com
+  senha: 123456
+- Aprovador 1
+  email: aprovador1@cooperfilme.com
+  senha: 123456
+- Aprovador 2
+  email: aprovador2@cooperfilme.com
+  senha: 123456
+- Aprovador 3
+  email: aprovador3@cooperfilme.com
+  senha: 123456``
+
 ## 💡 Dica
 
 Use o Postman ou Insomnia para testar os endpoints com facilidade.
