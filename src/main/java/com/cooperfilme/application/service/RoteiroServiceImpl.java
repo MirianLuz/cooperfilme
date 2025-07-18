@@ -11,6 +11,7 @@ import com.cooperfilme.domain.enums.StatusRoteiro;
 import com.cooperfilme.domain.model.Roteiro;
 import com.cooperfilme.domain.model.Usuario;
 import com.cooperfilme.domain.model.Voto;
+import com.cooperfilme.utils.StatusTransicaoValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,6 +72,13 @@ public class RoteiroServiceImpl implements RoteiroService {
                 .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado"));
 
         StatusRoteiro novoStatus = StatusRoteiro.valueOf(request.getNovoStatus().toString().toUpperCase());
+
+        if (!StatusTransicaoValidator.isTransicaoValida(roteiro.getStatus(), novoStatus)) {
+            throw new IllegalArgumentException(
+                    "Transição inválida de " + roteiro.getStatus() + " para " + novoStatus
+            );
+        }
+
         validarNovoStatus(novoStatus, usuario);
 
         roteiro.setStatus(novoStatus);
