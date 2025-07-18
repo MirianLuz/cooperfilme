@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Cliente {
-    private final String nome;
-    private final String email;
-    private final String telefone;
+    private String nome;
+    private String email;
+    private String telefone;
 }

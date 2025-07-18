@@ -2,6 +2,7 @@ package com.cooperfilme.domain.model;
 
 import com.cooperfilme.domain.enums.StatusRoteiro;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,19 +14,22 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Roteiro {
     private UUID id;
     private String titulo;
-    private String texto;
+    private String conteudo;
     private Cliente cliente;
     private StatusRoteiro status;
+    private String justificativaStatus;
     private UUID responsavelAtual;
-    private LocalDateTime dataCriacao;
-    private List<HistoricoStatus> historicoStatus = new ArrayList<>();
 
-    public void adicionarHistorico(StatusRoteiro novoStatus, UUID responsavel) {
-        historicoStatus.add(new HistoricoStatus(novoStatus, LocalDateTime.now(), responsavel));
-        this.status = novoStatus;
-        this.responsavelAtual = responsavel;
+    private List<Voto> votos = new ArrayList<>();
+
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
+
+    public void adicionarVoto(Voto voto) {
+        this.votos.add(voto);
     }
 }

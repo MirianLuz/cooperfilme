@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface RoteiroRepositoryPort {
-    Roteiro salvar(Roteiro roteiro);
-    Optional<Roteiro> buscarPorId(UUID id);
-    List<Roteiro> buscarTodos();
+public interface RoteiroRepository {
+    Roteiro save(Roteiro roteiro);
+    Optional<Roteiro> findById(UUID id);
+    List<Roteiro> findAll();
 }
