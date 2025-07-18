@@ -1,17 +1,38 @@
 package com.cooperfilme.domain.model;
 
 import com.cooperfilme.domain.enums.Cargo;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import java.util.UUID;
 
+@Entity
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Usuario {
-    private final UUID id;
-    private final String nome;
-    private final String email;
-    private final Cargo cargo;
-    private final String senha;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    private String nome;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    private String senha;
+
+    @Enumerated(EnumType.STRING)
+    private Cargo cargo;
 }
